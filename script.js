@@ -320,8 +320,38 @@ function isMobileOrInAppBrowser() {
   return isInApp || isMobile;
 }
 
-if (isMobileOrInAppBrowser()) {
-  downloadButton.hidden = true;
+function showImageOverlay(blob) {
+  const url = URL.createObjectURL(blob);
+  const overlay = document.createElement("div");
+  overlay.style.cssText =
+    "position:fixed;inset:0;background:rgba(0,0,0,.85);z-index:9999;" +
+    "display:flex;flex-direction:column;align-items:center;justify-content:center;" +
+    "padding:20px;gap:16px;";
+
+  const hint = document.createElement("p");
+  hint.textContent = "長按圖片 → 儲存至相簿";
+  hint.style.cssText = "color:#fff;font-size:16px;text-align:center;margin:0;";
+
+  const img = document.createElement("img");
+  img.src = url;
+  img.style.cssText =
+    "max-width:100%;max-height:70vh;border-radius:12px;display:block;";
+
+  const closeBtn = document.createElement("button");
+  closeBtn.textContent = "關閉";
+  closeBtn.style.cssText =
+    "background:rgba(255,255,255,.2);color:#fff;border:none;border-radius:8px;" +
+    "padding:10px 24px;font-size:15px;cursor:pointer;";
+  closeBtn.onclick = () => {
+    overlay.remove();
+    URL.revokeObjectURL(url);
+  };
+
+  overlay.addEventListener("click", (e) => {
+    if (e.target === overlay) closeBtn.click();
+  });
+  overlay.append(hint, img, closeBtn);
+  document.body.append(overlay);
 }
 
 function showView(view) {
@@ -692,11 +722,42 @@ shareButton.addEventListener("click", async () => {
 });
 
 downloadButton.addEventListener("click", async () => {
+  downloadButton.disabled = true;
+  downloadButton.textContent = "生成中…";
   try {
     const blob = await createResultCardBlob();
+
+    // 1. Web Share API with file — iOS 15+, Android Chrome
+    const file = new File([blob], "love-language-result.png", {
+      type: "image/png",
+    });
+    if (navigator.canShare && navigator.canShare({ files: [file] })) {
+      try {
+        await navigator.share({ files: [file], title: "我的愛之語結果" });
+        downloadButton.textContent = "下載卡片";
+        downloadButton.disabled = false;
+        return;
+      } catch (shareErr) {
+        if (shareErr.name === "AbortError") {
+          downloadButton.textContent = "下載卡片";
+          downloadButton.disabled = false;
+          return;
+        }
+        // share failed for other reasons — fall through
+      }
+    }
+
+    // 2. Mobile / in-app browser (LINE, Messenger…): show overlay
+    if (isMobileOrInAppBrowser()) {
+      showImageOverlay(blob);
+      downloadButton.textContent = "下載卡片";
+      downloadButton.disabled = false;
+      return;
+    }
+
+    // 3. Desktop: anchor download
     const url = URL.createObjectURL(blob);
     const link = document.createElement("a");
-
     link.href = url;
     link.download = "love-language-result.png";
     document.body.append(link);
@@ -707,11 +768,13 @@ downloadButton.addEventListener("click", async () => {
     downloadButton.textContent = "已下載";
     setTimeout(() => {
       downloadButton.textContent = "下載卡片";
+      downloadButton.disabled = false;
     }, 1400);
   } catch {
     downloadButton.textContent = "下載失敗";
     setTimeout(() => {
       downloadButton.textContent = "下載卡片";
+      downloadButton.disabled = false;
     }, 1400);
   }
 });
