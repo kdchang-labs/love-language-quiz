@@ -1,0 +1,9 @@
+<svg width="112" height="112" viewBox="0 0 112 112" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="愛之語檢測標誌">
+  <rect width="112" height="112" rx="24" fill="#FFF1F2"/>
+  <path d="M56 88C74 76 88 62 88 43.5C88 33.8 80.2 26 70.5 26C64.6 26 59.4 28.9 56 33.4C52.6 28.9 47.4 26 41.5 26C31.8 26 24 33.8 24 43.5C24 62 38 76 56 88Z" fill="#C94F5F"/>
+  <circle cx="37" cy="44" r="5" fill="#FFFDF9"/>
+  <circle cx="56" cy="58" r="5" fill="#FFFDF9"/>
+  <circle cx="75" cy="44" r="5" fill="#FFFDF9"/>
+  <path d="M41.5 46.5L51.7 55M60.3 55L70.5 46.5" stroke="#FFFDF9" stroke-width="4" stroke-linecap="round"/>
+  <path d="M34 83C40 90 47.3 94 56 94C64.7 94 72 90 78 83" stroke="#176F6A" stroke-width="5" stroke-linecap="round"/>
+</svg>

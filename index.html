@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="發現你的愛之語測驗：用 15 題快速了解你如何感受到被愛與被在乎。"
+    />
+    <title>發現你的愛之語測驗</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="icon" href="assets/favicon.ico" type="image/x-icon" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <section class="quiz-panel" aria-labelledby="page-title">
+        <header class="topbar">
+          <div class="brand">
+            <img class="brand-mark" src="assets/relationship-map.svg" alt="" />
+            <div>
+              <p class="eyebrow">Find Your Love Language</p>
+              <h1 id="page-title">發現你的愛之語</h1>
+            </div>
+          </div>
+        </header>
+
+        <section class="intro" id="introView">
+          <div class="intro-copy">
+            <h2>找出你如何感受到被愛與被在乎</h2>
+            <p>
+              這份 15
+              題測驗會整理你在家人、伴侶、朋友等關係中的偏好：肯定言語、精心時刻、接受禮物、服務行動、溫暖接觸。
+            </p>
+            <p class="note">此工具適合自我覺察與關係溝通，不是正式心理診斷。</p>
+          </div>
+          <div class="intro-actions">
+            <button class="primary-button" id="startButton" type="button">
+              開始檢測
+            </button>
+          </div>
+        </section>
+
+        <section class="quiz-view" id="quizView" hidden>
+          <div class="progress-wrap" aria-label="測驗進度">
+            <div class="progress-meta">
+              <span id="progressText">第 1 / 15 題</span>
+              <span id="answeredText">尚未作答</span>
+            </div>
+            <div class="progress-track">
+              <div class="progress-bar" id="progressBar"></div>
+            </div>
+          </div>
+
+          <article class="question-card">
+            <p class="question-kicker" id="questionKicker">二選一</p>
+            <h2 id="questionText"></h2>
+            <div class="choices" id="choices"></div>
+          </article>
+
+          <div class="nav-row">
+            <button class="secondary-button" id="prevButton" type="button">
+              上一題
+            </button>
+            <button
+              class="primary-button"
+              id="nextButton"
+              type="button"
+              disabled
+            >
+              下一題
+            </button>
+          </div>
+        </section>
+
+        <section class="result-view" id="resultView" hidden>
+          <div class="result-heading">
+            <p class="eyebrow">Your Result</p>
+            <h2 id="resultTitle"></h2>
+            <p id="resultSummary"></p>
+          </div>
+
+          <div class="result-grid">
+            <div class="ranking" id="rankingList" aria-label="愛之語排序"></div>
+            <div class="result-detail">
+              <h3 id="detailTitle"></h3>
+              <p id="detailBody"></p>
+              <div class="tips" id="tipsList"></div>
+            </div>
+          </div>
+
+          <div class="nav-row result-actions">
+            <button class="secondary-button" id="shareButton" type="button">
+              複製網站連結
+            </button>
+            <button class="secondary-button" id="downloadButton" type="button">
+              下載卡片
+            </button>
+            <button class="primary-button" id="restartButton" type="button">
+              重新測驗
+            </button>
+          </div>
+        </section>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p>
+        © 2026 發現你的愛之語 - Find Your Love Language. Built with ❤️ by
+        <a
+          href="https://www.kdchang.com/"
+          target="_blank"
+          rel="noopener noreferrer"
+          >KD Chang</a
+        >
+        in Taiwan.
+      </p>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
