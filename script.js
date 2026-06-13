@@ -2,146 +2,291 @@ const loveLanguages = {
   words: {
     name: "肯定言語",
     summary: "你容易透過清楚、真誠、具體的話語感受到被看見。",
-    detail: "對你來說，語言不是客套，而是關係裡的定錨。你重視身邊的人是否願意把欣賞、感謝、支持說出口，尤其是能指出細節的肯定。",
-    tips: ["把你喜歡被稱讚的方式說清楚。", "請重要的人用具體句子回應你的努力。", "重要時刻可以用文字訊息留下一些可回看的話。"]
+    detail:
+      "對你來說，語言不是客套，而是關係裡的定錨。你重視身邊的人是否願意把欣賞、感謝、支持說出口，尤其是能指出細節的肯定。",
+    tips: [
+      "把你喜歡被稱讚的方式說清楚。",
+      "請重要的人用具體句子回應你的努力。",
+      "重要時刻可以用文字訊息留下一些可回看的話。",
+    ],
   },
   time: {
     name: "精心時刻",
     summary: "你在專注陪伴與共享經驗中最能感到被在乎。",
-    detail: "你看重的是身邊的人是否把注意力真正放在你身上。一起吃飯、散步、聊天或完成一件小事，都可能比昂貴安排更有重量。",
-    tips: ["安排不滑手機的固定相處時間。", "用共同活動取代只是在同一個空間各忙各的。", "溝通時先給彼此完整注意力，再處理其他事情。"]
+    detail:
+      "你看重的是身邊的人是否把注意力真正放在你身上。一起吃飯、散步、聊天或完成一件小事，都可能比昂貴安排更有重量。",
+    tips: [
+      "安排不滑手機的固定相處時間。",
+      "用共同活動取代只是在同一個空間各忙各的。",
+      "溝通時先給彼此完整注意力，再處理其他事情。",
+    ],
   },
   gifts: {
     name: "接受禮物",
     summary: "你會從有心挑選的物品與紀念感中讀到愛意。",
-    detail: "禮物對你而言不只是價格，而是身邊的人是否記得你的偏好、生活細節與重要日子。一個小物也可能代表『我有把你放在心上』。",
-    tips: ["建立彼此的禮物靈感清單。", "把紀念日、重要里程碑放進日曆。", "重視包裝、手寫卡片或交付時的儀式感。"]
+    detail:
+      "禮物對你而言不只是價格，而是身邊的人是否記得你的偏好、生活細節與重要日子。一個小物也可能代表『我有把你放在心上』。",
+    tips: [
+      "建立彼此的禮物靈感清單。",
+      "把紀念日、重要里程碑放進日曆。",
+      "重視包裝、手寫卡片或交付時的儀式感。",
+    ],
   },
   acts: {
     name: "服務行動",
     summary: "你常透過實際分擔與主動協助感受到愛。",
-    detail: "你相信愛會落在行動裡。當身邊的人主動處理麻煩、記得你的負擔、在你開口前伸手協助，你會感到安心。",
-    tips: ["明確列出最能減輕壓力的三件事。", "用分工或約定讓付出不只靠默契。", "對實際幫忙給出即時感謝，讓對方知道做對了什麼。"]
+    detail:
+      "你相信愛會落在行動裡。當身邊的人主動處理麻煩、記得你的負擔、在你開口前伸手協助，你會感到安心。",
+    tips: [
+      "明確列出最能減輕壓力的三件事。",
+      "用分工或約定讓付出不只靠默契。",
+      "對實際幫忙給出即時感謝，讓對方知道做對了什麼。",
+    ],
   },
   touch: {
     name: "溫暖接觸",
     summary: "你透過合宜的靠近、擁抱與觸碰建立安全感。",
-    detail: "身體距離對你很有訊號意義。擁抱、靠近、輕拍肩膀或牽手，都可能讓你比單純說話更快感到被安撫。不同關係適合的接觸方式不同，界線與同意很重要。",
-    tips: ["先確認彼此舒服的觸碰界線。", "在合適的關係中加入自然的小接觸，例如擁抱或拍拍肩。", "衝突時若雙方都同意，可用短暫靠近幫助緩和。"]
-  }
+    detail:
+      "身體距離對你很有訊號意義。擁抱、靠近、輕拍肩膀或牽手，都可能讓你比單純說話更快感到被安撫。不同關係適合的接觸方式不同，界線與同意很重要。",
+    tips: [
+      "先確認彼此舒服的觸碰界線。",
+      "在合適的關係中加入自然的小接觸，例如擁抱或拍拍肩。",
+      "衝突時若雙方都同意，可用短暫靠近幫助緩和。",
+    ],
+  },
 };
 
 const questions = [
   {
     text: "當你一整天很累時，哪一種回應最能讓你放鬆？",
     choices: [
-      { type: "acts", title: "有人主動幫你處理一件麻煩事", body: "例如準備餐點、收拾、接手待辦。" },
-      { type: "words", title: "有人認真告訴你：辛苦了", body: "而且說得出你今天承受了什麼。" }
-    ]
+      {
+        type: "acts",
+        title: "有人主動幫你處理一件麻煩事",
+        body: "例如準備餐點、收拾、接手待辦。",
+      },
+      {
+        type: "words",
+        title: "有人認真告訴你：辛苦了",
+        body: "而且說得出你今天承受了什麼。",
+      },
+    ],
   },
   {
     text: "你比較容易記住哪一種愛意？",
     choices: [
-      { type: "gifts", title: "一份剛好符合你喜好的小禮物", body: "不一定昂貴，但讓你知道有人有留意。" },
-      { type: "time", title: "一段完整留給你的相處時間", body: "沒有分心，專心一起做正在做的事。" }
-    ]
+      {
+        type: "gifts",
+        title: "一份剛好符合你喜好的小禮物",
+        body: "不一定昂貴，但讓你知道有人有留意。",
+      },
+      {
+        type: "time",
+        title: "一段完整留給你的相處時間",
+        body: "沒有分心，專心一起做正在做的事。",
+      },
+    ],
   },
   {
     text: "在關係低潮時，你最希望重要的人怎麼靠近你？",
     choices: [
-      { type: "touch", title: "先給你一個安定的擁抱", body: "讓身體先知道你不是獨自面對。" },
-      { type: "words", title: "清楚說出願意理解與溝通", body: "用話語讓你確認關係仍然被重視。" }
-    ]
+      {
+        type: "touch",
+        title: "先給你一個安定的擁抱",
+        body: "讓身體先知道你不是獨自面對。",
+      },
+      {
+        type: "words",
+        title: "清楚說出願意理解與溝通",
+        body: "用話語讓你確認關係仍然被重視。",
+      },
+    ],
   },
   {
     text: "以下哪件事會讓你覺得自己被放在心上？",
     choices: [
-      { type: "time", title: "有人排開時間陪你完成一件小事", body: "一起採買、散步或整理房間。" },
-      { type: "acts", title: "有人默默把你討厭的瑣事做完", body: "讓你不用再分心處理。" }
-    ]
+      {
+        type: "time",
+        title: "有人排開時間陪你完成一件小事",
+        body: "一起採買、散步或整理房間。",
+      },
+      {
+        type: "acts",
+        title: "有人默默把你討厭的瑣事做完",
+        body: "讓你不用再分心處理。",
+      },
+    ],
   },
   {
     text: "如果只能選一個生日安排，你會偏好？",
     choices: [
-      { type: "gifts", title: "收到一份非常懂你的禮物", body: "看得出對方提前想過。" },
-      { type: "touch", title: "一整天都有溫暖自然的陪伴", body: "合宜的靠近或擁抱都讓你安心。" }
-    ]
+      {
+        type: "gifts",
+        title: "收到一份非常懂你的禮物",
+        body: "看得出對方提前想過。",
+      },
+      {
+        type: "touch",
+        title: "一整天都有溫暖自然的陪伴",
+        body: "合宜的靠近或擁抱都讓你安心。",
+      },
+    ],
   },
   {
     text: "你覺得最有力量的道歉通常包含什麼？",
     choices: [
-      { type: "acts", title: "對方真的改變行為", body: "不是只說抱歉，而是下次做得不同。" },
-      { type: "words", title: "對方把理解與歉意說完整", body: "能說出哪裡傷到你，以及願意修補。" }
-    ]
+      {
+        type: "acts",
+        title: "對方真的改變行為",
+        body: "不是只說抱歉，而是下次做得不同。",
+      },
+      {
+        type: "words",
+        title: "對方把理解與歉意說完整",
+        body: "能說出哪裡傷到你，以及願意修補。",
+      },
+    ],
   },
   {
     text: "週末你最想收到哪一種邀請？",
     choices: [
-      { type: "time", title: "我們留半天好好相處", body: "安排簡單也可以，重點是專心在一起。" },
-      { type: "gifts", title: "我看到一個東西很適合你", body: "對方因為想到你而帶回來。" }
-    ]
+      {
+        type: "time",
+        title: "我們留半天好好相處",
+        body: "安排簡單也可以，重點是專心在一起。",
+      },
+      {
+        type: "gifts",
+        title: "我看到一個東西很適合你",
+        body: "對方因為想到你而帶回來。",
+      },
+    ],
   },
   {
     text: "對你而言，哪一種日常更像被愛？",
     choices: [
-      { type: "touch", title: "見面或道別時的擁抱", body: "用合宜接觸確認彼此連結。" },
-      { type: "acts", title: "對方記得幫你補上缺的東西", body: "例如生活用品、行程、待辦提醒。" }
-    ]
+      {
+        type: "touch",
+        title: "見面或道別時的擁抱",
+        body: "用合宜接觸確認彼此連結。",
+      },
+      {
+        type: "acts",
+        title: "對方記得幫你補上缺的東西",
+        body: "例如生活用品、行程、待辦提醒。",
+      },
+    ],
   },
   {
     text: "你比較希望重要的人如何表達欣賞？",
     choices: [
-      { type: "words", title: "直接說出欣賞你的地方", body: "越具體越能讓你感到被理解。" },
-      { type: "gifts", title: "用一個小驚喜代表感謝", body: "讓心意有一個可以保存的形狀。" }
-    ]
+      {
+        type: "words",
+        title: "直接說出欣賞你的地方",
+        body: "越具體越能讓你感到被理解。",
+      },
+      {
+        type: "gifts",
+        title: "用一個小驚喜代表感謝",
+        body: "讓心意有一個可以保存的形狀。",
+      },
+    ],
   },
   {
     text: "當你感到不安時，哪一種支持最有效？",
     choices: [
-      { type: "time", title: "對方停下來陪你聊到穩定", body: "不急著解決，只是完整在場。" },
-      { type: "touch", title: "對方用合宜的方式靠近你", body: "讓你透過接觸慢慢安心。" }
-    ]
+      {
+        type: "time",
+        title: "對方停下來陪你聊到穩定",
+        body: "不急著解決，只是完整在場。",
+      },
+      {
+        type: "touch",
+        title: "對方用合宜的方式靠近你",
+        body: "讓你透過接觸慢慢安心。",
+      },
+    ],
   },
   {
     text: "你最容易因為哪件小事感動？",
     choices: [
-      { type: "gifts", title: "對方買了你提過一次的小東西", body: "證明對方真的有聽進去。" },
-      { type: "acts", title: "對方提前處理掉你的壓力來源", body: "讓你感覺有人和你同隊。" }
-    ]
+      {
+        type: "gifts",
+        title: "對方買了你提過一次的小東西",
+        body: "證明對方真的有聽進去。",
+      },
+      {
+        type: "acts",
+        title: "對方提前處理掉你的壓力來源",
+        body: "讓你感覺有人和你同隊。",
+      },
+    ],
   },
   {
     text: "你理想中的平日晚間比較像？",
     choices: [
-      { type: "time", title: "一起吃飯並好好聊今天", body: "不需要特別行程，只要專注。" },
-      { type: "words", title: "聽見對方分享今天想到你的瞬間", body: "一句話讓平凡日子變得被記得。" }
-    ]
+      {
+        type: "time",
+        title: "一起吃飯並好好聊今天",
+        body: "不需要特別行程，只要專注。",
+      },
+      {
+        type: "words",
+        title: "聽見對方分享今天想到你的瞬間",
+        body: "一句話讓平凡日子變得被記得。",
+      },
+    ],
   },
   {
     text: "你最希望對方在公開場合怎麼表達在乎？",
     choices: [
-      { type: "words", title: "自然肯定你、介紹你的優點", body: "讓你感到被尊重與珍惜。" },
-      { type: "touch", title: "自然靠近或給你支持性的碰觸", body: "用合宜的距離表達你們的連結。" }
-    ]
+      {
+        type: "words",
+        title: "自然肯定你、介紹你的優點",
+        body: "讓你感到被尊重與珍惜。",
+      },
+      {
+        type: "touch",
+        title: "自然靠近或給你支持性的碰觸",
+        body: "用合宜的距離表達你們的連結。",
+      },
+    ],
   },
   {
     text: "如果對方要讓你感覺被珍惜，你會選哪一個？",
     choices: [
-      { type: "acts", title: "對方主動分擔你一直扛著的事", body: "讓你不用每次都提醒或求助。" },
-      { type: "time", title: "對方安排一段只屬於你們的時間", body: "即使忙，也把關係排進生活。" }
-    ]
+      {
+        type: "acts",
+        title: "對方主動分擔你一直扛著的事",
+        body: "讓你不用每次都提醒或求助。",
+      },
+      {
+        type: "time",
+        title: "對方安排一段只屬於你們的時間",
+        body: "即使忙，也把關係排進生活。",
+      },
+    ],
   },
   {
     text: "長期關係中，你最不想失去的是？",
     choices: [
-      { type: "touch", title: "自然的靠近與溫柔互動", body: "讓關係保持安全、溫暖、真實。" },
-      { type: "gifts", title: "仍然願意為彼此準備心意", body: "讓日子裡保有被記得的證據。" }
-    ]
-  }
+      {
+        type: "touch",
+        title: "自然的靠近與溫柔互動",
+        body: "讓關係保持安全、溫暖、真實。",
+      },
+      {
+        type: "gifts",
+        title: "仍然願意為彼此準備心意",
+        body: "讓日子裡保有被記得的證據。",
+      },
+    ],
+  },
 ];
 
 const state = {
   currentIndex: 0,
-  answers: new Array(questions.length).fill(null)
+  answers: new Array(questions.length).fill(null),
 };
 
 const introView = document.querySelector("#introView");
@@ -164,6 +309,20 @@ const rankingList = document.querySelector("#rankingList");
 const detailTitle = document.querySelector("#detailTitle");
 const detailBody = document.querySelector("#detailBody");
 const tipsList = document.querySelector("#tipsList");
+
+function isMobileOrInAppBrowser() {
+  const ua = navigator.userAgent || "";
+  const isInApp =
+    /Line\/|FBAN|FBAV|Instagram|Snapchat|Twitter|MicroMessenger/i.test(ua);
+  const isMobile =
+    /Android|iPhone|iPad|iPod|Mobile/i.test(ua) ||
+    ("ontouchstart" in window && window.innerWidth < 768);
+  return isInApp || isMobile;
+}
+
+if (isMobileOrInAppBrowser()) {
+  downloadButton.hidden = true;
+}
 
 function showView(view) {
   introView.hidden = view !== "intro";
@@ -201,23 +360,29 @@ function renderQuestion() {
 
   prevButton.disabled = state.currentIndex === 0;
   nextButton.disabled = !selected;
-  nextButton.textContent = state.currentIndex === questions.length - 1 ? "查看結果" : "下一題";
+  nextButton.textContent =
+    state.currentIndex === questions.length - 1 ? "查看結果" : "下一題";
 }
 
 function calculateScores() {
-  return state.answers.reduce((scores, type) => {
-    if (type) {
-      scores[type] += 1;
-    }
-    return scores;
-  }, { words: 0, time: 0, gifts: 0, acts: 0, touch: 0 });
+  return state.answers.reduce(
+    (scores, type) => {
+      if (type) {
+        scores[type] += 1;
+      }
+      return scores;
+    },
+    { words: 0, time: 0, gifts: 0, acts: 0, touch: 0 },
+  );
 }
 
 function getSortedResults() {
   const scores = calculateScores();
   return Object.entries(scores)
     .map(([type, score]) => ({ type, score, ...loveLanguages[type] }))
-    .sort((a, b) => b.score - a.score || a.name.localeCompare(b.name, "zh-Hant"));
+    .sort(
+      (a, b) => b.score - a.score || a.name.localeCompare(b.name, "zh-Hant"),
+    );
 }
 
 function getShareText(results = getSortedResults()) {
@@ -319,11 +484,21 @@ function wrapCanvasText(ctx, text, maxWidth) {
   return lines;
 }
 
-function drawWrappedText(ctx, text, x, y, maxWidth, lineHeight, maxLines = Infinity) {
+function drawWrappedText(
+  ctx,
+  text,
+  x,
+  y,
+  maxWidth,
+  lineHeight,
+  maxLines = Infinity,
+) {
   const lines = wrapCanvasText(ctx, text, maxWidth).slice(0, maxLines);
 
   lines.forEach((line, index) => {
-    const isLastVisibleLine = index === maxLines - 1 && wrapCanvasText(ctx, text, maxWidth).length > maxLines;
+    const isLastVisibleLine =
+      index === maxLines - 1 &&
+      wrapCanvasText(ctx, text, maxWidth).length > maxLines;
     const visibleLine = isLastVisibleLine ? `${line.slice(0, -1)}...` : line;
     ctx.fillText(visibleLine, x, y + index * lineHeight);
   });
@@ -363,7 +538,8 @@ async function createResultCardBlob() {
   canvas.width = width;
   canvas.height = height;
 
-  const fontFamily = '"Noto Sans TC", "PingFang TC", "Microsoft JhengHei", sans-serif';
+  const fontFamily =
+    '"Noto Sans TC", "PingFang TC", "Microsoft JhengHei", sans-serif';
 
   ctx.fillStyle = "#f7f3ed";
   ctx.fillRect(0, 0, width, height);
@@ -448,7 +624,11 @@ async function createResultCardBlob() {
   ctx.fillStyle = "#6e665b";
   ctx.font = `500 22px ${fontFamily}`;
   ctx.textAlign = "center";
-  ctx.fillText("適用於家人、伴侶、朋友等關係中的自我覺察與溝通", width / 2, 1318);
+  ctx.fillText(
+    "適用於家人、伴侶、朋友等關係中的自我覺察與溝通",
+    width / 2,
+    1318,
+  );
   ctx.textAlign = "left";
 
   const blob = await canvasToBlob(canvas);
